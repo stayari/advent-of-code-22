@@ -26,6 +26,9 @@ jobs:
         run: | 
           curl https://raw.githubusercontent.com/stayari/advent-of-code-22/main/input/test.txt > new_file
       - name: Github
-        run: |
-          git status
-          git add . 
+        run: git status
+      - name: commit 
+        run: git add . 
+      - name: push 
+        run: git push
+        
