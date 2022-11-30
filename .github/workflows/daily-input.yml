@@ -21,3 +21,11 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+      
+      - name: Scrape input
+        run: | 
+          curl https://raw.githubusercontent.com/stayari/advent-of-code-22/main/input/test.txt > new_file
+      - name: Github
+        run: |
+          git status
+          git add . 
