@@ -27,8 +27,10 @@ jobs:
           curl https://raw.githubusercontent.com/stayari/advent-of-code-22/main/input/test.txt > new_file
       - name: Github
         run: git status
-      - name: commit 
-        run: git add . 
+      - name: add 
+        run: git add -A
+      - name: commit
+        run: git commit -m "autocommit"
       - name: push 
         run: git push
         
