@@ -29,7 +29,7 @@ jobs:
           cd ./input/
           curl -b session=${{ secrets.SESSION_TOKEN }} https://adventofcode.com/2022/day/1/input > input.txt
           cd ../puzzle/
-          touch day${{ env.DATE }}.py
+          touch day1.py
      
       - name: Github steps
         run: |
