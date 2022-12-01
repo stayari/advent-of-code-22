@@ -9,7 +9,7 @@ on:
   - cron:  '15 5 * * *'
   
 env:
-  DATE: echo $(date +'%d') | sed -e s/^0//
+  DATE: $(echo $(date +'%d') | sed 's/^0//')
   
 jobs:
   build:
@@ -29,7 +29,7 @@ jobs:
           cd ./input/
           curl -b session=${{ secrets.SESSION_TOKEN }} https://adventofcode.com/2022/day/1/input > input.txt
           cd ../puzzle/
-          touch day1.py
+          touch day${{ env.DATE }}.py
      
       - name: Github steps
         run: |
