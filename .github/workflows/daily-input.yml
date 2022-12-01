@@ -22,6 +22,7 @@ jobs:
       - name: Append todays 
         run: | 
           date=$(echo $(date +'%d') | sed -e s/^0//)
+          echo $date
           cd ./input/
           curl -b session=${{ secrets.SESSION_TOKEN }} https://adventofcode.com/2022/day/$date/input > input${{ env.DATE }}.txt
           cd ../puzzle/
