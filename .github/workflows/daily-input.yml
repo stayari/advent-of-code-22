@@ -27,7 +27,7 @@ jobs:
           d=$(echo $(date +'%d') | sed 's/^0//')
           echo $date
           cd ./input/
-          curl -b session=${{ secrets.SESSION_TOKEN }} https://adventofcode.com/2022/day/${{ env.DATE }/input > input${{ env.DATE }.txt
+          curl -b session=${{ secrets.SESSION_TOKEN }} https://adventofcode.com/2022/day/${{ env.DATE }}/input > input${{ env.DATE }}.txt
           cd ../puzzle/
           touch day${{ env.DATE }}.py
      
