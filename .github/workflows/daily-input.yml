@@ -4,7 +4,10 @@ on:
   push:
     branches: [ "main" ]
   workflow_dispatch:
-
+  
+env:
+  DATE: $(date +'%d')
+  
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,17 +31,15 @@ jobs:
       
       - name: Scrape input
         run: | 
-          curl https://raw.githubusercontent.com/stayari/advent-of-code-22/main/input/test.txt > new_file
-      - name: Github
-        run: git status
-      - name: add 
-        run: git add -A
-      - name: config
+          cd ./input/
+          curl https://raw.githubusercontent.com/stayari/advent-of-code-22/main/input/test.txt > day${{ env.DATE }}.txt
+      - name: Github steps
         run: |
-          git config --global user.email "runner@fv-az241-802.20uxw2ajcghezb0hlre1azn1tf.bx.internal.cloudapp.net"
+          git status
+          git add -A
+          git config --global user.email ""
           git config --global user.name "Pipe Line"
-      - name: commit
-        run: git commit -m "autocommit"
-      - name: push 
-        run: git push
+          git commit -m "Adding input files for day "
+          git push
+
         
