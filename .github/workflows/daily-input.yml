@@ -21,7 +21,7 @@ jobs:
       
       - name: Append todays 
         run: | 
-          mkdir ./input/day${{ env.DATE }} && cd "$_"
+          mkdir ./input/day${{ env.DATE }}/ && cd "$_"
           curl -b session=${{ secrets.SESSION_TOKEN }} https://adventofcode.com/2022/day/${{ env.DATE }}/input > input${{ env.DATE }}.txt
           touch day${{ env.DATE }}.py
      
