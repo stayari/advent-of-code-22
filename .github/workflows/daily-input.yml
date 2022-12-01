@@ -6,7 +6,7 @@ on:
   - cron:  '15 5 * * *'
   
 env:
-  DATE: $(date +'%d')
+  DATE: echo $(date +'%d') | sed -e s/^0//
   
 jobs:
   build:
