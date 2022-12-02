@@ -15,19 +15,17 @@ def main():
   # A 4  8  3
   # B 1  5  9 
   # C 7  2  6
-
-
-
     points = [[4, 8, 3 ],
                 [1, 5, 9 ],
                 [7, 2, 6 ]]
     
     my_points = 0
     for game in input_list: 
-        x = translate(game.split(' ')[0])
-        y = translate(game.split(' ')[1])
-        #print("here is x,y", x, y)
-        round_points = points[x][y]
+        x = game.split(' ')[0]
+        y = game.split(' ')[1]
+        pl = play(x, y)
+
+        round_points = points[translate(x)][translate(pl)]
         print("This round i got", round_points)
         my_points = my_points + round_points
     print(my_points)
@@ -39,7 +37,7 @@ def translate(c):
     return
 def play(opponent, outcome):
     # X Lose
-    if outcome == 'X':
+    if outcome == 'Z':
         if(opponent == 'A'): return 'B'
         if(opponent == 'B'): return 'C'
         if(opponent == 'C'): return 'A'
@@ -47,7 +45,7 @@ def play(opponent, outcome):
     if outcome == 'Y':
         return opponent
     # Z Win
-    if outcome == 'Z':
+    if outcome == 'X':
         if(opponent == 'A'): return 'C'
         if(opponent == 'B'): return 'A'
         if(opponent == 'C'): return 'B'
