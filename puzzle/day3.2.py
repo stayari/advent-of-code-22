@@ -11,7 +11,6 @@ def main():
 
 def get_common_badge(rucksacks):
     common_badge = dict()
-    list_of_set = []
     for rucksack in rucksacks:
         # Convert to set to remove duplicates
         for c in set(rucksack):
