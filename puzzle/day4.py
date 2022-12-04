@@ -2,7 +2,7 @@
 def main():
     input = open('../input/input4.txt', 'r').read()
     input_list = input.split('\n')
-    ans_a =  ans_b = 0
+    ans_a = ans_b = 0
 
     for row in input_list: 
         if issubset(row):
@@ -23,7 +23,7 @@ def issubset(pair):
 
 def overlaps(pair):
     min1, max1, min2, max2 = process(pair)
-    return (not max1 < min2 and max1 <= max2) or (not max2 < min1 and max1 >= max2)
+    return not (max1 < min2 or max2 < min1)
  
 if __name__ == '__main__':
     print(main())
