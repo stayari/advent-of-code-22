@@ -8,8 +8,7 @@ def main():
     for instruction in instructions.split('\n'):
         move_boxes_2(boxes, instruction)
     for box in boxes:
-        if box:
-            ans += str(box[0])
+        if box: ans += str(box[0])
     return ans
 
 def move_boxes(boxes, instruction):
@@ -24,11 +23,11 @@ def move_boxes_2(boxes, instruction):
     boxes[frm-1] = boxes[frm-1][amount:]
 
 def box_processer(boxes):
-    lists = [[] for i in range(len(boxes.split('\n')[0])//4 + 1)]
-    for row in boxes.split('\n')[:-1]:
-        for c in enumerate(row):
-            if c[0] % 4 == 1 and not c[1] == ' ':
-                lists[int((c[0] - 1)/4)].append(c[1])
+    lists = [[] for i in range(len(boxes.split('\n')[0])//4 + 1)] # Creates empty lists
+    for row in boxes.split('\n')[:-1]: # Skip last row since its only numbers
+        for i, c in enumerate(row):
+            if i % 4 == 1 and not c == ' ':
+                lists[int((i - 1)/4)].append(c)
     return lists
 
 if __name__ == '__main__':
